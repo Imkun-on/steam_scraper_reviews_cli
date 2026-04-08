@@ -31,6 +31,8 @@ from rich.text import Text
 
 import re as _re
 
+_ILLEGAL_XML_RE = _re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]')
+
 from api import (
     search_games, enrich_search_results, get_app_details, parse_metadata,
     get_review_summary, get_review_counts_by_language, fetch_reviews,
@@ -488,7 +490,10 @@ def scrape_reviews(appid: int, game_name: str):
 
         for row_idx, row in enumerate(rows, 2):
             for col_idx, field in enumerate(fields, 1):
-                ws.cell(row=row_idx, column=col_idx, value=row[field])
+                val = row[field]
+                if isinstance(val, str):
+                    val = _ILLEGAL_XML_RE.sub('', val)
+                ws.cell(row=row_idx, column=col_idx, value=val)
 
         for col_idx, field in enumerate(fields, 1):
             if field == "review":
