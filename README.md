@@ -11,12 +11,12 @@
 # Steam Reviews Scraper & CLI Tool
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Steam-Store%20API-171A21?style=for-the-badge&logo=steam&logoColor=white" alt="Steam">
-  <img src="https://img.shields.io/badge/Rich-14.2+-4EC820?style=for-the-badge&logo=terminal&logoColor=white" alt="Rich">
-  <img src="https://img.shields.io/badge/Requests-2.32+-FF6600?style=for-the-badge&logo=python&logoColor=white" alt="Requests">
-  <img src="https://img.shields.io/badge/openpyxl-3.1+-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="openpyxl">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Steam-Store%20API-171A21?logo=steam&logoColor=white" alt="Steam">
+  <img src="https://img.shields.io/badge/Rich-14.2+-4EC820?logo=terminal&logoColor=white" alt="Rich">
+  <img src="https://img.shields.io/badge/Requests-2.32+-FF6600?logo=python&logoColor=white" alt="Requests">
+  <img src="https://img.shields.io/badge/openpyxl-3.1+-217346?logo=microsoftexcel&logoColor=white" alt="openpyxl">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
 </p>
 
 **A terminal-based tool to browse the [Steam Store](https://store.steampowered.com), view game details, compare system requirements, and bulk-download reviews to CSV/Excel.**
