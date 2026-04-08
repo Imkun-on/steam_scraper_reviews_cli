@@ -29,6 +29,8 @@ from rich.style import Style
 from rich.table import Table
 from rich.text import Text
 
+import re as _re
+
 from api import (
     search_games, enrich_search_results, get_app_details, parse_metadata,
     get_review_summary, get_review_counts_by_language, fetch_reviews,
@@ -521,6 +523,12 @@ def scrape_reviews(appid: int, game_name: str):
 
 # ─── Main Loop ────────────────────────────────────────────────────────────────
 
+def _parse_steam_url(text: str) -> int | None:
+    """Extract an app ID from a Steam Store URL. Returns None if not a valid URL."""
+    m = _re.match(r'https?://store\.steampowered\.com/app/(\d+)', text.strip())
+    return int(m.group(1)) if m else None
+
+
 def _handle_game(appid: int) -> None:
     """Load and display details for a single game, optionally scrape reviews."""
     with console.status("[bright_cyan]Loading game details...[/bright_cyan]", spinner="dots"):
@@ -548,22 +556,28 @@ def main():
             break
 
         if choice == "search":
-            query = Prompt.ask("[bold]Search a game on Steam[/bold]")
+            query = Prompt.ask("[bold]Enter a game name or Steam URL[/bold]")
             if not query.strip():
                 continue
 
-            with console.status(f"[bright_cyan]Searching '{query}'...[/bright_cyan]", spinner="dots"):
-                results = search_games(query.strip())
+            # Check if the input is a Steam URL
+            url_appid = _parse_steam_url(query.strip())
+            if url_appid is not None:
+                console.print(f"  {SYM_ARROW} Detected Steam URL  [bright_magenta]App ID: {url_appid}[/bright_magenta]")
+                _handle_game(url_appid)
+            else:
+                with console.status(f"[bright_cyan]Searching '{query}'...[/bright_cyan]", spinner="dots"):
+                    results = search_games(query.strip())
 
-            if results:
-                with console.status("[bright_cyan]Loading details...[/bright_cyan]", spinner="dots"):
-                    enrich_search_results(results)
+                if results:
+                    with console.status("[bright_cyan]Loading details...[/bright_cyan]", spinner="dots"):
+                        enrich_search_results(results)
 
-            appid = show_search_results(results)
-            if appid is None:
-                continue
+                appid = show_search_results(results)
+                if appid is None:
+                    continue
 
-            _handle_game(appid)
+                _handle_game(appid)
 
         else:
             # Browse category
