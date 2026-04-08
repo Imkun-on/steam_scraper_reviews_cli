@@ -1,3 +1,5 @@
+<div align="center">
+
 ```
  ______     ______   ______     ______     __    __        ______     ______     __   __   __     ______     __     __     ______
 /\  ___\   /\__  _\ /\  ___\   /\  __ \   /\ "-./  \      /\  == \   /\  ___\   /\ \ / /  /\ \   /\  ___\   /\ \  _ \ \   /\  ___\
@@ -6,57 +8,45 @@
   \/_____/     \/_/   \/_____/   \/_/\/_/   \/_/  \/_/      \/_/ /_/   \/_____/   \/_/      \/_/   \/_____/   \/_/   \/_/   \/_____/
 ```
 
-<h1 align="center">Steam Reviews Scraper & CLI Tool</h1>
+# Steam Reviews Scraper & CLI Tool
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Steam-Store%20API-171A21?logo=steam&logoColor=white" alt="Steam">
-  <img src="https://img.shields.io/badge/Rich-14.2+-4EC820?logo=terminal&logoColor=white" alt="Rich">
-  <img src="https://img.shields.io/badge/Requests-2.32+-FF6600?logo=python&logoColor=white" alt="Requests">
-  <img src="https://img.shields.io/badge/openpyxl-3.1+-217346?logo=microsoftexcel&logoColor=white" alt="openpyxl">
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Steam-Store%20API-171A21?style=for-the-badge&logo=steam&logoColor=white" alt="Steam">
+  <img src="https://img.shields.io/badge/Rich-14.2+-4EC820?style=for-the-badge&logo=terminal&logoColor=white" alt="Rich">
+  <img src="https://img.shields.io/badge/Requests-2.32+-FF6600?style=for-the-badge&logo=python&logoColor=white" alt="Requests">
+  <img src="https://img.shields.io/badge/openpyxl-3.1+-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="openpyxl">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
 </p>
 
-<p align="center">
-  A terminal-based tool to browse the <a href="https://store.steampowered.com">Steam Store</a>, view game details,<br>
-  compare system requirements, and bulk-download reviews to CSV/Excel.
-</p>
+**A terminal-based tool to browse the [Steam Store](https://store.steampowered.com), view game details, compare system requirements, and bulk-download reviews to CSV/Excel.**
 
-```bash
-git clone https://github.com/Imkun-on/steam_scraper_reviews_cli.git
-cd steam_scraper_reviews_cli
-pip install -r requirements.txt
-python run.py
-```
+[🎮 Features](#-features) • [📦 Installation](#-installation) • [🚀 Usage & Examples](#-usage--examples) • [🏗️ Architecture](#%EF%B8%8F-architecture)
+
+</div>
 
 ---
 
-## Table of Contents
+## 📋 Project Description
 
-- [What it does](#what-it-does)
-- [Libraries Used & Why](#libraries-used--why)
-- [Requirements & Installation](#requirements--installation)
-- [Usage & Examples](#usage--examples)
-  - [Main Menu](#main-menu)
-  - [Example 1: Search by name](#example-1-search-by-name)
-  - [Example 2: Browse Top Sellers](#example-2-browse-top-sellers)
-  - [Example 3: Download reviews](#example-3-download-reviews)
-- [Game Details Panel](#game-details-panel)
-- [Review Scraping](#review-scraping)
-- [Export Formats](#export-formats)
-- [Architecture](#architecture)
-- [Configuration](#configuration)
-- [Cross-platform support](#cross-platform-support)
-- [License](#license)
+This project provides a **fully interactive CLI** for exploring the Steam Store and scraping game reviews at scale. Instead of navigating the Steam website manually, you get a single terminal interface that lets you search games, browse storefront categories, inspect detailed metadata, and export complete review datasets — all with a polished Rich UI.
+
+The tool is designed for:
+
+- **Data analysts** who need review datasets for sentiment analysis or NLP research
+- **Gamers** who want a quick terminal overview of any game's details and reception
+- **Developers** interested in Steam Store API integration patterns
 
 ---
 
-## What it does
+## 🎮 Features
+
+### Steam Store (website) vs Steam Reviews CLI
 
 | Feature | Steam Store (website) | Steam Reviews CLI |
 |---|---|---|
 | **Browse** | Navigate pages manually | Browse New & Trending, Top Sellers, Coming Soon, Specials, Free to Play from one menu |
-| **Search** | Basic store search | Search by name with enriched results (release date, languages, price) |
+| **Search** | Basic store search | Search by name or paste a Steam URL to jump directly to game details |
 | **Game details** | Scattered across tabs | Single panel: metadata, packages with discount pricing, description, system requirements |
 | **System requirements** | Read and compare manually | Auto-detects your PC specs and shows them side-by-side with min/recommended |
 | **Review counts** | Total count only | Per-language review breakdown with rating labels (Overwhelmingly Positive, Mixed, etc.) |
@@ -65,7 +55,32 @@ python run.py
 
 ---
 
-## Libraries Used & Why
+## 📦 Installation
+
+### Requirements
+
+Requires **Python 3.10+**.
+
+```bash
+git clone https://github.com/Imkun-on/steam_scraper_reviews_cli.git
+cd steam_scraper_reviews_cli
+pip install -r requirements.txt
+python run.py
+```
+
+Or install dependencies manually:
+
+```bash
+pip install requests rich openpyxl
+```
+
+> `openpyxl` is optional — only needed for Excel export. CSV export works without it.
+
+---
+
+## 📚 Libraries Used & Why
+
+### Third-Party Dependencies
 
 | Library | Version | Purpose | Why this library? |
 |---------|---------|---------|-------------------|
@@ -86,29 +101,7 @@ python run.py
 
 ---
 
-## Requirements & Installation
-
-### Python
-
-Requires **Python 3.10+**.
-
-### Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Or manually:
-
-```bash
-pip install requests rich openpyxl
-```
-
-`openpyxl` is optional — only needed for Excel export. CSV export works without it.
-
----
-
-## Usage & Examples
+## 🚀 Usage & Examples
 
 ```bash
 python run.py
@@ -123,7 +116,7 @@ The interactive main menu appears after the banner:
   ┌──────┬──────────────────────────┐
   │  #   │ Option                   │
   ├──────┼──────────────────────────┤
-  │  S   │ Search by name           │
+  │  S   │ Search by name or URL    │
   │  1   │ New & Trending           │
   │  2   │ Top Sellers              │
   │  3   │ Coming Soon              │
@@ -143,7 +136,7 @@ Press `q` at any point to go back to this menu.
 
 ```
   Choose an option: s
-  Search a game on Steam: Resident Evil 4
+  Enter a game name or Steam URL: Resident Evil 4
 
   ⠋ Searching 'Resident Evil 4'...
   ⠋ Loading details...
@@ -163,7 +156,41 @@ Press `q` at any point to go back to this menu.
 
 ---
 
-### Example 2: Browse Top Sellers
+### Example 2: Direct URL lookup
+
+You can paste a Steam Store URL directly to skip the search and jump straight to the game details:
+
+```
+  Choose an option: s
+  Enter a game name or Steam URL: https://store.steampowered.com/app/2050650/Resident_Evil_4/
+
+  → Detected Steam URL  App ID: 2050650
+
+  ⠋ Loading game details...
+
+  ╔══════════════════════════ Resident Evil 4 ══════════════════════════╗
+  ║                                                                     ║
+  ║     · Release date: 23 Mar, 2023                                    ║
+  ║     · Developer: CAPCOM Co., Ltd.                                   ║
+  ║     · Publisher: CAPCOM Co., Ltd.                                   ║
+  ║     · Tags: Action, Adventure                                       ║
+  ║     · Price: 15,99€  (-60%  base: 39,99€)                           ║
+  ║       ▸ Resident Evil 4  39,99€  15,99€                             ║
+  ║       ▸ Resident Evil 4 Gold Edition  49,99€  19,99€                ║
+  ║     ...                                                             ║
+  ╚═════════════════════════════════════════════════════════════════════╝
+
+  Download reviews? [y/n]:
+```
+
+> Supported URL formats:
+> - `https://store.steampowered.com/app/2050650/Resident_Evil_4/`
+> - `https://store.steampowered.com/app/2050650`
+> - `http://store.steampowered.com/app/730/`
+
+---
+
+### Example 3: Browse Top Sellers
 
 ```
   Choose an option: 2
@@ -186,7 +213,7 @@ Press `q` at any point to go back to this menu.
 
 ---
 
-### Example 3: Download reviews
+### Example 4: Download reviews
 
 After selecting a game and viewing its details:
 
@@ -239,40 +266,88 @@ After selecting a game and viewing its details:
 
 ---
 
-## Game Details Panel
+## 🎯 Game Details Panel
 
-Selecting a game displays a full info panel:
+Selecting a game displays a comprehensive info panel with all relevant data in one place:
 
-- **Metadata** — release date, developer, publisher, genre tags, franchise
-- **Packages** — all available editions with original price ~~struck through~~ and discounted price highlighted
-- **Reviews** — total count with positive/negative breakdown and percentage
-- **Description** — structured with section headers, bullet points, and text wrapping
-- **System Requirements** — your PC specs auto-detected and shown side-by-side with minimum and recommended requirements
+<table>
+<tr>
+<td width="180"><strong>📋 Metadata</strong></td>
+<td>Release date, developer, publisher, genre tags, franchise</td>
+</tr>
+<tr>
+<td><strong>💰 Packages</strong></td>
+<td>All available editions with original price <s>struck through</s> and discounted price highlighted in green</td>
+</tr>
+<tr>
+<td><strong>⭐ Reviews</strong></td>
+<td>Total count with positive/negative breakdown and percentage</td>
+</tr>
+<tr>
+<td><strong>📖 Description</strong></td>
+<td>Structured with section headers (bold cyan), bullet points (yellow markers), and automatic text wrapping</td>
+</tr>
+<tr>
+<td><strong>🖥️ System Requirements</strong></td>
+<td>Your PC specs auto-detected and displayed side-by-side with minimum and recommended requirements</td>
+</tr>
+</table>
 
 ---
 
-## Review Scraping
+## 🔍 Review Scraping
 
-The scraper downloads **all reviews** for a game in a selected language via the Steam API:
+The scraper downloads **all reviews** for a game in a selected language via the Steam API.
 
-- Fetches in batches of 100 with cursor-based pagination
-- Real-time progress bar with ETA
-- Each review includes: **Steam ID**, **author name**, **full review text**, **positive/negative**, **purchase type** (Steam/key), **language**, **playtime**, **date**
+### How it works
+
+1. **Language selection** — shows a table with all 30 supported languages, each with its review count and rating label (fetched in parallel, ~3 seconds)
+2. **Download** — fetches reviews in batches of 100 with cursor-based pagination and a real-time progress bar with ETA
+3. **Preview** — displays the first 5 reviews in a formatted table
+4. **Export** — saves to CSV, Excel, or both
+
+### Review Data Fields
+
+| Field | Description |
+|-------|-------------|
+| `steam_id` | Unique Steam ID of the reviewer (primary key) |
+| `author` | Display name of the reviewer |
+| `review` | Full review text (no truncation) |
+| `review_type` | `positive` or `negative` |
+| `purchase_type` | `steam` or `key/other` |
+| `language` | Language code of the review |
+| `playtime` | Total playtime (e.g., `27h 45m`) |
+| `date` | Review submission date |
+
+### Rating Labels
+
+The language filter table shows Steam's rating label for each language:
+
+| Label | Color |
+|-------|-------|
+| Overwhelmingly Positive | Bright green |
+| Very Positive | Green |
+| Positive / Mostly Positive | Green |
+| Mixed | Yellow |
+| Mostly Negative / Negative | Red |
+| Very Negative / Overwhelmingly Negative | Bright red |
 
 ---
 
-## Export Formats
+## 📁 Export Formats
 
 | Format | File | Details |
 |--------|------|---------|
 | **CSV** | `reviews_{Game}_{lang}.csv` | Standard CSV, UTF-8 encoded, compatible with any spreadsheet or data tool |
-| **Excel** | `reviews_{Game}_{lang}.xlsx` | Styled workbook with bold headers (Steam dark theme), auto-sized columns, ready to filter and sort |
+| **Excel** | `reviews_{Game}_{lang}.xlsx` | Styled workbook with bold headers (Steam dark theme `#1B2838`), auto-sized columns, ready to filter and sort |
 
-Both formats include all fields: `steam_id`, `author`, `review`, `review_type`, `purchase_type`, `language`, `playtime`, `date`.
+Both formats include all 8 fields: `steam_id`, `author`, `review`, `review_type`, `purchase_type`, `language`, `playtime`, `date`.
 
 ---
 
-## Architecture
+## 🏗️ Architecture
+
+### Project Structure
 
 ```
 steam_scraper_reviews_cli/
@@ -283,6 +358,8 @@ steam_scraper_reviews_cli/
 ├── specs.py            PC hardware detection via PowerShell (Windows)
 └── requirements.txt    Python dependencies
 ```
+
+### System Diagram
 
 ```
 cli.py
@@ -296,16 +373,26 @@ cli.py
   │
   ├── specs.py ── PowerShell (Windows)
   │                 ├── Win32_Processor            → CPU name
-  │                 ├── Win32_VideoController       → GPU name
-  │                 └── Win32_ComputerSystem        → RAM total
+  │                 ├── Win32_VideoController      → GPU name
+  │                 └── Win32_ComputerSystem       → RAM total
   │
   └── Rich (terminal UI)
           Tables, Panels, Progress bars, Styled text
 ```
 
+### API Endpoints Used
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/storesearch/` | GET | Search games by name |
+| `/api/appdetails/` | GET | Full game metadata (description, prices, packages, requirements) |
+| `/api/featuredcategories/` | GET | Storefront categories (New & Trending, Top Sellers, Coming Soon, Specials) |
+| `/search/` | GET + scrape | Free to Play game listings |
+| `/appreviews/{appid}` | GET | Review data, per-language counts, and rating labels |
+
 ---
 
-## Configuration
+## ⚙️ Configuration
 
 Constants in `api.py`:
 
@@ -315,18 +402,22 @@ Constants in `api.py`:
 | `RETRY_DELAY` | 2s | Wait between retries |
 | `SESSION` | persistent | Reuses HTTP connection with `Accept-Language: en` |
 
-The Steam Store API is undocumented and rate-limited. The tool uses a persistent session and automatic retries to handle transient errors gracefully.
+> The Steam Store API is undocumented and rate-limited. The tool uses a persistent session and automatic retries to handle transient errors gracefully.
 
 ---
 
-## Cross-platform support
+## 🖥️ Cross-platform Support
 
-- **Windows** — full support including automatic PC specs detection (CPU, GPU, RAM via PowerShell)
-- **macOS / Linux** — fully functional, but PC specs detection shows "N/A" (Steam API data still works)
-- UTF-8 output is automatically configured on Windows terminals
+| Platform | Status | Notes |
+|----------|--------|-------|
+| **Windows** | Full support | Automatic PC specs detection (CPU, GPU, RAM via PowerShell) |
+| **macOS** | Functional | PC specs detection shows "N/A" — all Steam API features work |
+| **Linux** | Functional | PC specs detection shows "N/A" — all Steam API features work |
+
+UTF-8 output is automatically configured on Windows terminals.
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License.
