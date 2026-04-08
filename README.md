@@ -23,7 +23,7 @@
 </p>
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/steam_scraper_reviews_cli.git
+git clone https://github.com/Imkun-on/steam_scraper_reviews_cli.git
 cd steam_scraper_reviews_cli
 pip install -r requirements.txt
 python run.py
